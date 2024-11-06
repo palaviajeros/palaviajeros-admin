@@ -1,0 +1,63 @@
+import { Country } from "./interface";
+
+export const countries: Country[] = [
+  {
+    countryCode: "PH",
+    countryName: "Philippines",
+    packages: [
+      {
+        code: "boracay-1",
+        name: "Boracay Summer Getaway",
+        isFlexible: true,
+        tags: ["best-seller", "sale"],
+        shortDescription: ["Enjoy the pristine white sand beaches in one of the best islands in the country!"],
+        longDescription: ["Enjoy the pristine white sand beaches in one of the best islands in the country! Discover the beauty of Boracay, home to some of the most pristine white-sand beaches in the Philippines, consistently ranked among the best islands in the world. Whether you're looking to unwind by the crystal-clear waters or indulge in thrilling water sports like kite surfing and paddleboarding, Boracay offers a perfect blend of relaxation and adventure. As the sun sets, the island transforms into a lively hub with beachfront bars, vibrant nightlife, and exciting fire shows that keep the party going long into the night. With its breathtaking sunsets and warm tropical ambiance, Boracay is a dream destination for beach lovers."],
+        location: ["Boracay, Philippines"],
+        inclusions: ["Accommodation", "Flight", "TravelInsurance"],
+        exclusions: ["Meals", "Transfers", "Tours"],
+        days: 3,
+        travelDates: ["2024-09-10", "2024-10-01"],
+        price: 2099,
+        salePrice: 1899,
+      },
+      {
+        code: "palawan-1",
+        name: "Enjoy the Sun in Palawan Tour!",
+        isFlexible: false,
+        tags: ["best-seller", "featured"],
+        shortDescription: ["Palawan is a tropical paradise known for its stunning limestone cliffs, crystal-clear waters, and pristine beaches, making it a top destination for nature lovers and adventure seekers."],
+        longDescription: ["Palawan is a tropical paradise known for its stunning limestone cliffs, crystal-clear waters, and pristine beaches, making it a top destination for nature lovers and adventure seekers. It's all you ever wanted and more! Enjoy the white sand beaches and snorkel through the corals underwater in the day and enjoy the vibrant party scene at night! We also offer guided island hopping tours."],
+        location: ["Palawan, Philippines"],
+        inclusions: ["Accommodation", "Flight", "TravelInsurance"],
+        exclusions: ["Meals", "Transfers"],
+        days: 3,
+        travelDates: ["2024-09-10", "2024-10-01", "2025-01-25"],
+        price: 1395,
+        salePrice: NaN,
+      },
+    ],
+    available: true,
+  },
+  {
+    countryCode: "ID",
+    countryName: "Indonesia",
+    packages: [
+      {
+        code: "bali-1",
+        name: "Ubud Art Village Tour",
+        isFlexible: false,
+        tags: ["best-seller", "sale"],
+        shortDescription: ["Enjoy the pristine white sand beaches in one of the best islands in the country!"],
+        longDescription: ["Enjoy the pristine white sand beaches in one of the best islands in the country! Discover the beauty of Boracay, home to some of the most pristine white-sand beaches in the Philippines, consistently ranked among the best islands in the world. Whether you're looking to unwind by the crystal-clear waters or indulge in thrilling water sports like kite surfing and paddleboarding, Boracay offers a perfect blend of relaxation and adventure. As the sun sets, the island transforms into a lively hub with beachfront bars, vibrant nightlife, and exciting fire shows that keep the party going long into the night. With its breathtaking sunsets and warm tropical ambiance, Boracay is a dream destination for beach lovers."],
+        location: ["Bali, Indonesia"],
+        inclusions: ["Accommodation", "Flight", "TravelInsurance"],
+        exclusions: ["Meals", "Transfers", "Tours"],
+        days: 1,
+        travelDates: ["2024-09-10", "2024-10-01"],
+        price: 100,
+        salePrice: NaN,
+      },
+    ],
+    available: true,
+  },
+];

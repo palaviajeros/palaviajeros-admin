@@ -6,32 +6,34 @@ import Link from "next/link";
 import { countries } from "./countries";
 
 export default function PackagesAndTours() {
-  const rows = countries.map((country) =>
-    country.packages.map((pkg) => (
-      <Table.Tr key={`${country.countryCode}-${pkg.code}`}>
-        <Table.Td>{country.countryName}</Table.Td>
-        <Table.Td>{pkg.location}</Table.Td>
-        <Table.Td>{pkg.name}</Table.Td>
-        <Table.Td>{pkg.price}</Table.Td>
-        <Table.Td>{pkg.salePrice ? pkg.salePrice : "No discount"}</Table.Td>
-        <Table.Td>{pkg.isFlexible ? "Flexible" : "Not flexible"}</Table.Td>
-        <Table.Td>{pkg.days}</Table.Td>
-        <Table.Td>{country.available ? "Active" : "Inactive"}</Table.Td>
-        <Table.Td>
-          <Group>
-            <Link style={{ textDecoration: "none", color: "grey" }} href="#">
-              <IconPencil />
-            </Link>
-            <Link style={{ textDecoration: "none", color: "grey" }} href="#">
-              <IconEye />
-            </Link>
-            <Link style={{ textDecoration: "none", color: "grey" }} href="#">
-              <IconTrash />
-            </Link>
-          </Group>
-        </Table.Td>
-      </Table.Tr>
-    ))
+  const rows = countries.flatMap((country) =>
+    console.log(country);
+
+    // country.packages.map((pkg) => (
+    //   <Table.Tr key={`${country.countryCode}-${pkg.code}`}>
+    //     <Table.Td>{country.countryName}</Table.Td>
+    //     <Table.Td>{pkg.location}</Table.Td>
+    //     <Table.Td>{pkg.name}</Table.Td>
+    //     <Table.Td>{pkg.price}</Table.Td>
+    //     <Table.Td>{pkg.salePrice ? pkg.salePrice : "No discount"}</Table.Td>
+    //     <Table.Td>{pkg.isFlexible ? "Flexible" : "Not flexible"}</Table.Td>
+    //     <Table.Td>{pkg.days}</Table.Td>
+    //     <Table.Td>{country.available ? "Active" : "Inactive"}</Table.Td>
+    //     <Table.Td>
+    //       <Group>
+    //         <Link style={{ textDecoration: "none", color: "grey" }} href="#">
+    //           <IconPencil />
+    //         </Link>
+    //         <Link style={{ textDecoration: "none", color: "grey" }} href="#">
+    //           <IconEye />
+    //         </Link>
+    //         <Link style={{ textDecoration: "none", color: "grey" }} href="#">
+    //           <IconTrash />
+    //         </Link>
+    //       </Group>
+    //     </Table.Td>
+    //   </Table.Tr>
+    // ))
   );
 
   const names = (

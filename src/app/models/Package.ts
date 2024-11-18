@@ -1,10 +1,3 @@
-export interface Country {
-  countryCode: string;
-  countryName: string;
-  packages: Package[];
-  available: boolean;
-}
-
 export interface Package {
   code: string;
   name: string;

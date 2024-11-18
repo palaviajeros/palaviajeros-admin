@@ -3,7 +3,8 @@ import React from "react";
 import { Table, ScrollArea, Group, Anchor } from "@mantine/core";
 import { IconTrash, IconEye, IconPencil } from "@tabler/icons-react";
 import { countries } from "./countries";
-import { Country, Package } from "./interface";
+import { Country } from "../models/Country";
+import { Package } from "../models/Package";
 
 function PackagesRow({ pkg, country }: { pkg: Package; country: Country }) {
   return (

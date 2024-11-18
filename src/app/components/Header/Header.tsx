@@ -11,7 +11,9 @@ export default function Header() {
   return (
     <>
       <Flex justify="space-between" align="center">
-        <Title order={3}>PalaViajeros Admin</Title>
+        <Title order={2} c="var(--mantine-color-dark-4)" pl={10}>
+          PalaViajeros Admin
+        </Title>
         <Burger opened={opened} hiddenFrom="sm" onClick={toggle} aria-label="Toggle navigation" />
       </Flex>
       <Drawer
@@ -24,7 +26,7 @@ export default function Header() {
         position="left"
         size="100%"
       >
-        <Box onClick={close}>
+        <Box>
           <Navbar />
         </Box>
       </Drawer>

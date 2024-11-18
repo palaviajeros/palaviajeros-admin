@@ -15,7 +15,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <AppShell
             header={{ height: 60 }}
             navbar={{
-              width: { sm: 200, lg: 300 },
+              width: { sm: 240 },
               breakpoint: "sm",
             }}
             padding="md"
@@ -23,7 +23,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <AppShellHeader p="sm">
               <Header />
             </AppShellHeader>
-            <AppShellNavbar p="md" bg="transparent" visibleFrom="sm">
+            <AppShellNavbar visibleFrom="sm" p="sm">
               <Navbar />
             </AppShellNavbar>
             <AppShellMain>{children}</AppShellMain>

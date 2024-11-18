@@ -1,38 +1,40 @@
 "use client";
 import React from "react";
-import { Table, ScrollArea, Group } from "@mantine/core";
+import { Table, ScrollArea, Group, Anchor } from "@mantine/core";
 import { IconTrash, IconEye, IconPencil } from "@tabler/icons-react";
-import Link from "next/link";
 import { countries } from "./countries";
+import { Country, Package } from "./interface";
+
+function PackagesRow({ pkg, country }: { pkg: Package; country: Country }) {
+  return (
+    <Table.Tr key={`${country.countryCode}-${pkg.code}`}>
+      <Table.Td>{country.countryName}</Table.Td>
+      <Table.Td>{pkg.location}</Table.Td>
+      <Table.Td>{pkg.name}</Table.Td>
+      <Table.Td>{pkg.price}</Table.Td>
+      <Table.Td>{pkg.salePrice ? pkg.salePrice : "No discount"}</Table.Td>
+      <Table.Td>{pkg.isFlexible ? "Flexible" : "Not flexible"}</Table.Td>
+      <Table.Td>{pkg.days}</Table.Td>
+      <Table.Td>{country.available ? "Active" : "Inactive"}</Table.Td>
+      <Table.Td>
+        <Group gap="xs">
+          <Anchor underline="never" c="dark" href="#">
+            <IconPencil stroke={1.5} />
+          </Anchor>
+          <Anchor underline="never" c="dark" href="#">
+            <IconEye stroke={1.5} />
+          </Anchor>
+          <Anchor underline="never" c="dark" href="#">
+            <IconTrash stroke={1.5} />
+          </Anchor>
+        </Group>
+      </Table.Td>
+    </Table.Tr>
+  );
+}
 
 export default function PackagesAndTours() {
-  const rows = countries.flatMap((country) =>
-    country.packages.map((pkg) => (
-      <Table.Tr key={`${country.countryCode}-${pkg.code}`}>
-        <Table.Td>{country.countryName}</Table.Td>
-        <Table.Td>{pkg.location}</Table.Td>
-        <Table.Td>{pkg.name}</Table.Td>
-        <Table.Td>{pkg.price}</Table.Td>
-        <Table.Td>{pkg.salePrice ? pkg.salePrice : "No discount"}</Table.Td>
-        <Table.Td>{pkg.isFlexible ? "Flexible" : "Not flexible"}</Table.Td>
-        <Table.Td>{pkg.days}</Table.Td>
-        <Table.Td>{country.available ? "Active" : "Inactive"}</Table.Td>
-        <Table.Td>
-          <Group>
-            <Link style={{ textDecoration: "none", color: "grey" }} href="#">
-              <IconPencil />
-            </Link>
-            <Link style={{ textDecoration: "none", color: "grey" }} href="#">
-              <IconEye />
-            </Link>
-            <Link style={{ textDecoration: "none", color: "grey" }} href="#">
-              <IconTrash />
-            </Link>
-          </Group>
-        </Table.Td>
-      </Table.Tr>
-    ))
-  );
+  const rows = countries.flatMap((country) => country.packages.map((pkg) => <PackagesRow key={`${country.countryCode}-${pkg.code}`} pkg={pkg} country={country} />));
 
   const names = (
     <Table.Tr>

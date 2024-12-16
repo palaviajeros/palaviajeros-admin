@@ -1,10 +1,11 @@
 "use client";
 import React from "react";
-import { Table, ScrollArea, Group, Anchor } from "@mantine/core";
+import { Table, ScrollArea, Group, Anchor, ActionIcon, Box, Flex } from "@mantine/core";
 import { IconTrash, IconEye, IconPencil } from "@tabler/icons-react";
 import { countries } from "./countries";
 import { Country } from "../models/Country";
 import { Package } from "../models/Package";
+import Link from "next/link";
 
 function PackagesRow({ pkg, country }: { pkg: Package; country: Country }) {
   return (
@@ -19,15 +20,15 @@ function PackagesRow({ pkg, country }: { pkg: Package; country: Country }) {
       <Table.Td>{country.available ? "Active" : "Inactive"}</Table.Td>
       <Table.Td>
         <Group gap="xs">
-          <Anchor underline="never" c="dark" href="#">
+          <ActionIcon component={Link} href="/">
             <IconPencil stroke={1.5} />
-          </Anchor>
-          <Anchor underline="never" c="dark" href="#">
+          </ActionIcon>
+          <ActionIcon component={Link} href="/">
             <IconEye stroke={1.5} />
-          </Anchor>
-          <Anchor underline="never" c="dark" href="#">
+          </ActionIcon>
+          <ActionIcon component={Link} href="/">
             <IconTrash stroke={1.5} />
-          </Anchor>
+          </ActionIcon>
         </Group>
       </Table.Td>
     </Table.Tr>
@@ -54,6 +55,9 @@ export default function PackagesAndTours() {
   return (
     <>
       <h1>Packages and Tours</h1>
+      <Flex justify="end" pb="md">
+        <Link href="/producteditor">Add Package</Link>
+      </Flex>
       <ScrollArea w="100%">
         <Table horizontalSpacing="lg" verticalSpacing="lg" withTableBorder>
           <Table.Thead>{names}</Table.Thead>

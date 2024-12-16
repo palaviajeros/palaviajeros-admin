@@ -6,7 +6,7 @@ import { Box, NavLink } from "@mantine/core";
 
 const links = [
   { icon: IconGauge, link: "/", label: "Home" },
-  { icon: IconAdjustments, link: "/PackagesAndTours", label: "Products" },
+  { icon: IconAdjustments, link: "/packagesandtours", label: "Products" },
 ];
 
 export default function Navbar() {

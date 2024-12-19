@@ -1,41 +1,31 @@
 "use client";
 
 import { useState } from "react";
-import { Package } from "../models/Package";
-import { Country } from "../models/Country";
-import { Box, Title, Text, TagsInput, MultiSelect, Textarea, NumberInput, Group, Button, Input, Checkbox, Stack, Image, Card, ActionIcon, rem, MantineProvider } from "@mantine/core";
-import { Dropzone, DropzoneProps, IMAGE_MIME_TYPE } from "@mantine/dropzone";
+import { Box, Title, Text, TagsInput, MultiSelect, Textarea, NumberInput, Group, Button, Input, Checkbox, Stack, Image, Card, ActionIcon } from "@mantine/core";
+import { Dropzone, IMAGE_MIME_TYPE } from "@mantine/dropzone";
 import { DateInput } from "@mantine/dates";
-import { IconPhoto, IconUpload, IconX, IconCheck } from "@tabler/icons-react";
+import { IconPhoto, IconUpload, IconX } from "@tabler/icons-react";
 import "@mantine/dropzone/styles.css";
 
 import { notifications } from "@mantine/notifications";
 
-interface ProductEditorProps {
-  travelPackage: Package;
-  country: Country;
-  handleSave: () => void;
-}
+// interface ProductEditorProps {
+//   travelPackage: Package;
+//   country: Country;
+//   handleSave: () => void;
+// }
 
-function ProductEditor() {
+export default function ProductEditor() {
   const [value, setValue] = useState<Date | null>(null);
-  //for Date flexible
-  const [flexible, setFlexible] = useState<boolean>(true);
-  const handleFlexible = () => {
-    setFlexible(!flexible);
-  };
-  //for Price
-  const [discount, setDiscount] = useState<boolean>(false);
-  const handleDiscount = () => {
-    setDiscount(!discount);
-  };
-  //for save button
+  const [flexible, setFlexible] = useState(true);
+  const [discount, setDiscount] = useState(false);
+
   const handleSave = () => {
     notifications.show({
       title: "Success",
       message: "Your changes have been saved!",
       color: "green",
-      autoClose: false,
+      autoClose: 5000,
     });
   };
 
@@ -78,7 +68,7 @@ function ProductEditor() {
             >
               <IconX />
             </ActionIcon>
-            <Image radius="md" h={100} w={200} fallbackSrc="https://placehold.co/600x400?text=Placeholder" />
+            <Image alt="placeholder" radius="md" h={100} w={200} fallbackSrc="https://placehold.co/600x400?text=Placeholder" />
           </Card>
         </Group>
       </Box>
@@ -103,7 +93,7 @@ function ProductEditor() {
         </Title>
         <Stack w={{ base: "auto", md: 500 }}>
           <DateInput value={value} clearable label="Date input" placeholder="Date input" />
-          <Checkbox defaultChecked label="Flexible" onClick={handleFlexible} />
+          <Checkbox defaultChecked label="Flexible" onClick={() => setFlexible(!flexible)} />
         </Stack>
       </Box>
       <Box mb="md">
@@ -112,7 +102,7 @@ function ProductEditor() {
         </Title>
         <Stack w={{ base: "auto", md: 500 }}>
           <Input placeholder="Price" />
-          <Checkbox label="Enable Discount Price" onClick={handleDiscount} />
+          <Checkbox label="Enable Discount Price" onClick={() => setDiscount(!discount)} />
           <Input placeholder="Discount Price" disabled={!discount} />
         </Stack>
       </Box>
@@ -134,5 +124,3 @@ function ProductEditor() {
     </>
   );
 }
-
-export default ProductEditor;

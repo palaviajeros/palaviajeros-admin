@@ -5,8 +5,6 @@ import Navbar from "./components/Navbar/Navbar";
 import Header from "./components/Header/Header";
 import { Notifications } from "@mantine/notifications";
 import "@mantine/notifications/styles.css";
-import ProductEditor from "./producteditor/page";
-import PackagesAndTours from "./packagesandtours/page";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (

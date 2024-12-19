@@ -3,15 +3,18 @@
 import { useState } from "react";
 import { Package } from "../models/Package";
 import { Country } from "../models/Country";
-import { Box, Title, Text, TagsInput, MultiSelect, Textarea, NumberInput, Group, Button, Input, Checkbox, Stack, Image, Card, ActionIcon } from "@mantine/core";
+import { Box, Title, Text, TagsInput, MultiSelect, Textarea, NumberInput, Group, Button, Input, Checkbox, Stack, Image, Card, ActionIcon, rem, MantineProvider } from "@mantine/core";
 import { Dropzone, DropzoneProps, IMAGE_MIME_TYPE } from "@mantine/dropzone";
 import { DateInput } from "@mantine/dates";
-import { IconPhoto, IconUpload, IconX } from "@tabler/icons-react";
+import { IconPhoto, IconUpload, IconX, IconCheck } from "@tabler/icons-react";
 import "@mantine/dropzone/styles.css";
+
+import { notifications } from "@mantine/notifications";
 
 interface ProductEditorProps {
   travelPackage: Package;
   country: Country;
+  handleSave: () => void;
 }
 
 function ProductEditor() {
@@ -25,6 +28,15 @@ function ProductEditor() {
   const [discount, setDiscount] = useState<boolean>(false);
   const handleDiscount = () => {
     setDiscount(!discount);
+  };
+  //for save button
+  const handleSave = () => {
+    notifications.show({
+      title: "Success",
+      message: "Your changes have been saved!",
+      color: "green",
+      autoClose: false,
+    });
   };
 
   return (
@@ -117,7 +129,7 @@ function ProductEditor() {
         <TagsInput></TagsInput>
       </Box>
       <Box mt="xl">
-        <Button>Save</Button>
+        <Button onClick={handleSave}>Save</Button>
       </Box>
     </>
   );

@@ -3,6 +3,10 @@ import "@mantine/core/styles.css";
 import { AppShell, AppShellHeader, AppShellMain, AppShellNavbar, ColorSchemeScript, MantineProvider } from "@mantine/core";
 import Navbar from "./components/Navbar/Navbar";
 import Header from "./components/Header/Header";
+import { Notifications } from "@mantine/notifications";
+import "@mantine/notifications/styles.css";
+import ProductEditor from "./producteditor/page";
+import PackagesAndTours from "./packagesandtours/page";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -12,6 +16,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body>
         <MantineProvider>
+          <Notifications />
           <AppShell
             header={{ height: 60 }}
             navbar={{

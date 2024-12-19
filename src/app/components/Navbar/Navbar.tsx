@@ -11,9 +11,9 @@ const links = [
 
 export default function Navbar() {
   const items = links.map(({ icon: IconComponent, link, label }, index) => (
-    <Flex align="center" gap="xs">
+    <Flex align="center" gap="xs" key={index}>
       <IconComponent stroke={1.5} size="1rem" />
-      <Link href={link} key={index} style={{ textDecoration: "none", color: "black" }}>
+      <Link href={link} style={{ textDecoration: "none", color: "black" }}>
         {label}
       </Link>
     </Flex>

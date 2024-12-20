@@ -9,12 +9,6 @@ import "@mantine/dropzone/styles.css";
 
 import { notifications } from "@mantine/notifications";
 
-// interface ProductEditorProps {
-//   travelPackage: Package;
-//   country: Country;
-//   handleSave: () => void;
-// }
-
 export default function ProductEditor() {
   const [value, setValue] = useState<Date | null>(null);
   const [flexible, setFlexible] = useState(true);
